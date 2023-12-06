@@ -1,10 +1,14 @@
 import React from 'react';
-
-function InputField({getValue}) {
-  
+import styles from '../components/InputField.module.css';
+function InputField({ getValue }) {
   return (
     <div>
-      <input type="text" placeholder="Enter name" onKeyDown={getValue} />
+      <input
+        type="text"
+        className={styles.inputStyle}
+        placeholder="Enter name"
+        onKeyDown={getValue}
+      />
     </div>
   );
 }
