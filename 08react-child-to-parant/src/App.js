@@ -6,13 +6,22 @@ function App() {
 
   const getValue = (event) => {
     const newValue = event.target.value;
-
     setInputVal(newValue);
-    console.log(inputVal);
+    // console.log(inputVal);
   };
   return (
     <div className="App">
-      <h1>Enter Value</h1>
+      <h1
+        style={{
+          paddingLeft: 10,
+          margin: 0,
+          paddingTop: 20,
+          color: 'white',
+          paddingBottom: 6,
+        }}
+      >
+        Data transfer from child to parent
+      </h1>
       <InputField getValue={getValue} />
       <DisplayList inputVal={inputVal} />
     </div>

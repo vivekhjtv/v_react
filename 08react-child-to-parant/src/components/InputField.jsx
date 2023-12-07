@@ -6,8 +6,9 @@ function InputField({ getValue }) {
       <input
         type="text"
         className={styles.inputStyle}
-        placeholder="Enter name"
-        onKeyDown={getValue}
+        placeholder="Enter something..."
+        // onKeyDown={getValue}
+        onChange={getValue}
       />
     </div>
   );

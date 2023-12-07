@@ -1,5 +1,7 @@
 .inputStyle {
-  margin: 10px !important;
+  margin: 16px 0px 10px 24px;
   padding: 10px;
-  color: rgb(255, 145, 0);
+  color: rgb(45, 108, 245);
+  font-size: 20px;
+  width: 350px;
 }
