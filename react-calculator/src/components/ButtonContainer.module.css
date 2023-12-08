@@ -7,4 +7,10 @@
   width: 45px;
   height: 45px;
   margin: 3px;
+  font-size: large;
+  background-color: black;
+  color: rgb(119, 3, 3);
+  border: 0px;
+  border: 1px solid rgb(119, 3, 3);
+  border-radius: 5px;
 }

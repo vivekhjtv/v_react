@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Display from './components/Display.jsx';
 import Heading from './components/Heading.jsx';
 import ButtonContainer from './components/ButtonContainer';
+import Container from './components/Container';
 function App() {
   const [displayVal, setDisplayVal] = useState('');
 
@@ -18,11 +19,13 @@ function App() {
     }
   };
   return (
-    <div className={styles.calculator}>
-      <Heading />
-      <Display displayVal={displayVal} />
-      <ButtonContainer onButtonClick={onButtonClick} />
-    </div>
+    <Container>
+      <div className={styles.calculator}>
+        <Heading />
+        <Display displayVal={displayVal} />
+        <ButtonContainer onButtonClick={onButtonClick} />
+      </div>
+    </Container>
   );
 }
 
