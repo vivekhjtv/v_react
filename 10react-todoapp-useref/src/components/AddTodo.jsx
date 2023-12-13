@@ -1,53 +1,49 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import styles from './AddTodo.module.css';
+
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState();
-  const [dueDate, setDueDate] = useState();
+  const todoNameRef = useRef();
+  const dueDateRef = useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-
-  const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
-
-  const handleAddButtonClicked = () => {
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault();
+    const todoName = todoNameRef.current.value;
+    const dueDate = dueDateRef.current.value;
+    todoNameRef.current.value = '';
+    dueDateRef.current.value = '';
     onNewItem(todoName, dueDate);
-    setDueDate('');
-    setTodoName('');
   };
 
   return (
     <div className={`container text-center ${styles['container-outer']}`}>
-      <div className={`row ${styles['container-box']}`}>
+      <form
+        className={`row ${styles['container-box']}`}
+        onSubmit={handleAddButtonClicked}
+      >
         <div className="col-6">
           <input
             className={`p-2 ${styles['input-style']}`}
+            ref={todoNameRef}
             type="text"
             placeholder="Enter Todo Here"
-            value={todoName}
-            onChange={handleNameChange}
           />
         </div>
         <div className="col-4">
           <input
             className={`p-2 ${styles['input-style']}`}
+            ref={dueDateRef}
             type="date"
-            value={dueDate}
-            onChange={handleDateChange}
           />
         </div>
         <div className="col-2">
           <button
-            type="button"
+            type="submit"
             className={`btn btn-success kg-button p-2 ${styles['button-add']}`}
-            onClick={handleAddButtonClicked}
           >
             Add
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
