@@ -1,3 +1,14 @@
 .itemsContainer {
   text-align: left;
+  width: 800px;
+}
+.item-name {
+  padding: 10px 20px !important;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+}
+.button-add {
+  min-width: 100px;
 }

@@ -1,0 +1,16 @@
+.container-outer {
+  display: flex;
+  justify-content: center;
+}
+.container-box {
+  width: 800px;
+}
+.input-style {
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: bisque;
+  width: 100%;
+}
+.button-add {
+  min-width: 100px;
+}

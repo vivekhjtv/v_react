@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState } from 'react';
+import styles from './AddTodo.module.css';
 function AddTodo({ onNewItem }) {
   const [todoName, setTodoName] = useState();
   const [dueDate, setDueDate] = useState();
@@ -14,15 +14,16 @@ function AddTodo({ onNewItem }) {
 
   const handleAddButtonClicked = () => {
     onNewItem(todoName, dueDate);
-    setDueDate("");
-    setTodoName("");
+    setDueDate('');
+    setTodoName('');
   };
 
   return (
-    <div className="container text-center">
-      <div className="row kg-row">
+    <div className={`container text-center ${styles['container-outer']}`}>
+      <div className={`row ${styles['container-box']}`}>
         <div className="col-6">
           <input
+            className={`p-2 ${styles['input-style']}`}
             type="text"
             placeholder="Enter Todo Here"
             value={todoName}
@@ -30,12 +31,17 @@ function AddTodo({ onNewItem }) {
           />
         </div>
         <div className="col-4">
-          <input type="date" value={dueDate} onChange={handleDateChange} />
+          <input
+            className={`p-2 ${styles['input-style']}`}
+            type="date"
+            value={dueDate}
+            onChange={handleDateChange}
+          />
         </div>
         <div className="col-2">
           <button
             type="button"
-            className="btn btn-success kg-button"
+            className={`btn btn-success kg-button p-2 ${styles['button-add']}`}
             onClick={handleAddButtonClicked}
           >
             Add
