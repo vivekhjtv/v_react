@@ -17,3 +17,9 @@
   padding: 30px 0px;
   margin: 0px;
 }
+.addBlogContainer {
+  justify-content: center;
+}
+.addBlogsForm {
+  width: 850px !important;
+}

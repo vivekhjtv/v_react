@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function Header({ selectTab, setSelectTab }) {
   return (
     <div>
       <header className="p-3 text-bg-dark">
@@ -14,23 +14,32 @@ function Header() {
             </a>
 
             <ul className="nav col-12 col-lg-auto me-lg-auto ps-md-5 mb-2 justify-content-center mb-md-0">
-              <li>
+              <li
+                onClick={() => {
+                  setSelectTab('Blogs');
+                }}
+              >
                 <a
                   href="#"
-                  className="nav-link font-monospace px-2 text-secondary"
+                  className={`nav-link font-monospace px-2 ${
+                    selectTab === 'Blogs' ? 'text-warning' : 'text-white'
+                  }`}
                 >
                   Blogs
                 </a>
               </li>
-              <li>
-                <a href="#" className="nav-link font-monospace px-2 text-white">
+              <li
+                onClick={() => {
+                  setSelectTab('Add Blogs');
+                }}
+              >
+                <a
+                  href="#"
+                  className={`nav-link font-monospace px-2 ${
+                    selectTab === 'Add Blogs' ? 'text-warning' : 'text-white'
+                  }`}
+                >
                   Add Blogs
-                </a>
-              </li>
-
-              <li>
-                <a href="#" className="nav-link font-monospace px-2 text-white">
-                  About
                 </a>
               </li>
             </ul>
