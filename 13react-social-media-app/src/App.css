@@ -23,3 +23,9 @@
 .addBlogsForm {
   width: 850px !important;
 }
+.hashTag {
+  margin: 0px 3px;
+}
+.reactionTag {
+  margin: 16px 0px;
+}

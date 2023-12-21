@@ -5,14 +5,46 @@ export const BlogList = createContext({
   addBlog: () => {},
   deleteBlog: () => {},
 });
-const postListReducer = () => {};
+
+//reducer
+const postListReducer = (currBlogList, action) => {
+  let newBlogList = currBlogList;
+  if (action.type === 'DELETE_POST') {
+    newBlogList = currBlogList.filter(
+      (blog) => blog.id !== action.payload.blogId
+    );
+  } else if (action.type === 'ADD_POST') {
+    newBlogList = [action.payload, ...currBlogList];
+  }
+
+  return newBlogList;
+};
+
 const BlogListProvider = ({ children }) => {
   const [blogList, dispatcherBlogList] = useReducer(
     postListReducer,
     DEFAULT_BLOG_LIST
   );
-  const addBlog = () => {};
-  const deleteBlog = () => {};
+  const addBlog = (userId, title, content, emotion, tagWords) => {
+    dispatcherBlogList({
+      type: 'ADD_POST',
+      payload: {
+        id: Date.now(),
+        title: title,
+        body: content,
+        reactions: emotion,
+        userId: userId,
+        tags: tagWords,
+      },
+    });
+  };
+
+  const deleteBlog = (blogId) => {
+    dispatcherBlogList({
+      type: 'DELETE_POST',
+      payload: { blogId },
+    });
+  };
 
   return (
     <BlogList.Provider value={{ blogList, addBlog, deleteBlog }}>
@@ -28,7 +60,7 @@ const DEFAULT_BLOG_LIST = [
     body: 'This is the first post in our blog!',
     reactions: 10,
     userId: 12,
-    tags: ['enjoy', 'started'],
+    tags: ['enjoy', 'started', 'new Revolution'],
   },
   {
     id: '2',
